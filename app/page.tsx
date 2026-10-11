@@ -61,7 +61,7 @@ export default function Page() {
     <main>
       <header className="site-header">
         <div className="container nav-inner">
-          <a className="brand" href="#начало" aria-label="ЗеленоВкъщи начало">
+          <a className="brand" href="#home" aria-label="ЗеленоВкъщи начало">
             <img className="brand-logo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%D0%97%D0%B5%D0%BB%D0%B5%D0%BD%D0%BE%D0%92%D0%BA%D1%8A%D1%89%D0%B8_%20%D0%93%D1%80%D0%B8%D0%B6%D0%B0%20%D0%B7%D0%B0%20%D1%82%D1%80%D0%B5%D0%B2%D0%B0%D1%82%D0%B0-6JiYkWfQ2nPniR118IQlbh85xvqIuQ.png" alt="Лого на ЗеленоВкъщи" />
           </a>
           <button className="mobile-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Затвори менюто' : 'Отвори менюто'} aria-expanded={menuOpen}>
@@ -78,7 +78,7 @@ export default function Page() {
         </div>
       </header>
 
-      <section id="начало" className="hero">
+      <section id="home" className="hero">
         <div className="hero-orb hero-orb-one" />
         <div className="hero-orb hero-orb-two" />
         <div className="container hero-grid">
