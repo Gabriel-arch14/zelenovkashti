@@ -103,7 +103,7 @@ export default function Page() {
       <section id="services" className="services section-padding">
         <div className="container">
           <div className="section-heading"><div><p className="eyebrow">Какво правим</p><h2>Зеленото е<br /><em>нашата стихия.</em></h2></div><p>От първата идея до последното листо — ние се грижим вашето пространство да изглежда и да се усеща прекрасно.</p></div>
-          <div className="service-grid">{services.map(([title, text], index) => <article className="service-card" key={title}><span className="service-number">0{index + 1}</span><span className="service-icon"><Leaf aria-hidden="true" /></span><h3>{title}</h3><p>{text}</p><a href="#contact">Научете повече <ArrowRight aria-hidden="true" /></a></article>)}</div>
+          <div className="service-grid">{services.map(([title, text], index) => <article className="service-card" key={title}><span className="service-number">0{index + 1}</span><span className="service-icon"><Leaf aria-hidden="true" /></span><h3>{title}</h3><p>{text}</p><a href={`/uslugi/${index === 0 ? 'poddrushka-na-dvorove' : index === 1 ? 'ozelenyavane' : 'grizha-za-rasteniyata'}`}>Научете повече <ArrowRight aria-hidden="true" /></a></article>)}</div>
         </div>
       </section>
 
