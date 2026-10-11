@@ -61,9 +61,8 @@ export default function Page() {
     <main>
       <header className="site-header">
         <div className="container nav-inner">
-          <a className="brand" href="#home" aria-label="ЗеленоВкъщи начало">
-            <span className="brand-mark"><Leaf aria-hidden="true" /></span>
-            <span>Зелено<span>Вкъщи</span></span>
+          <a className="brand" href="#начало" aria-label="ЗеленоВкъщи начало">
+            <img className="brand-logo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%D0%97%D0%B5%D0%BB%D0%B5%D0%BD%D0%BE%D0%92%D0%BA%D1%8A%D1%89%D0%B8_%20%D0%93%D1%80%D0%B8%D0%B6%D0%B0%20%D0%B7%D0%B0%20%D1%82%D1%80%D0%B5%D0%B2%D0%B0%D1%82%D0%B0-6JiYkWfQ2nPniR118IQlbh85xvqIuQ.png" alt="Лого на ЗеленоВкъщи" />
           </a>
           <button className="mobile-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Затвори менюто' : 'Отвори менюто'} aria-expanded={menuOpen}>
             {menuOpen ? <X /> : <Menu />}
@@ -73,7 +72,8 @@ export default function Page() {
             <a href="#about" onClick={() => setMenuOpen(false)}>За нас</a>
             <a href="#projects" onClick={() => setMenuOpen(false)}>Проекти</a>
             <a href="#contact" onClick={() => setMenuOpen(false)}>Контакти</a>
-            <a className="nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>Свържете се <ArrowRight aria-hidden="true" /></a>
+            <a className="nav-phone" href="tel:+359888123456" onClick={() => setMenuOpen(false)}><Phone aria-hidden="true" /> +359 888 123 456</a>
+            <a className="nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>Поискайте оглед <ArrowRight aria-hidden="true" /></a>
           </nav>
         </div>
       </header>
@@ -96,6 +96,19 @@ export default function Page() {
             <div className="hero-image-wrap"><img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=85" alt="Слънчева зелена градина с декоративни треви" /></div>
             <div className="floating-card"><span className="floating-icon"><Leaf aria-hidden="true" /></span><span><strong>Живи пространства</strong><small>Естествено. Красиво. Ваше.</small></span></div>
             <span className="sun-stamp">100%<small>естествена<br />грижа</small></span>
+          </div>
+        </div>
+      </section>
+
+      <section className="service-area" aria-label="Райони на обслужване">
+        <div className="container service-area-inner">
+          <div>
+            <p className="service-area-label">Райони на обслужване</p>
+            <h2>Зелени услуги<br />близо до вас.</h2>
+            <p className="service-area-text">Работим в София и околността. Всяко посещение се потвърждава предварително според адреса и случая.</p>
+          </div>
+          <div className="area-pills" aria-label="Обслужвани райони">
+            {['София', 'Бояна', 'Драгалевци', 'Симеоново', 'Витоша'].map(area => <span key={area}>{area}</span>)}
           </div>
         </div>
       </section>
