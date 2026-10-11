@@ -53,7 +53,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <section className="service-detail-content section-padding"><div className="container service-content-grid"><div><p className="eyebrow">Какво включва</p><h2>Грижа, която се вижда<br /><em>във всеки детайл.</em></h2><div className="service-activity-list">{service.activities.map((activity) => <div key={activity}><span><Check aria-hidden="true" /></span><p>{activity}</p></div>)}</div></div><aside className="service-advice"><ShieldCheck aria-hidden="true" /><h3>На какво обръщаме внимание?</h3><p>{service.problems}</p><p>{service.pests}</p></aside></div></section>
 
-      <section className="service-detail-cta"><div className="container"><p className="eyebrow">Имате въпрос?</p><h2>Нека поговорим за<br /><em>вашето зелено място.</em></h2><Link className="button button-light" href="/#contact">Свържете се с нас <Phone aria-hidden="true" /></Link></div></section>
+      <section className="service-detail-cta"><div className="container"><p className="eyebrow">Имате въпрос?</p><h2>Нека поговорим за<br /><em>вашето зелено място.</em></h2><Link className="button button-light" href="/#contact">Поискайте консултация <Phone aria-hidden="true" /></Link></div></section>
       <footer className="footer"><div className="container footer-inner"><Link className="brand" href="/"><span className="brand-mark"><Leaf aria-hidden="true" /></span><span>Зелено<span>Вкъщи</span></span></Link><p>Създаваме зелени места за по-добър живот.</p><small>© 2024 ЗеленоВкъщи</small></div></footer>
     </main>
   )
