@@ -20,24 +20,32 @@ const projects = [
     title: 'Двор на къща',
     tag: 'Цялостно озеленяване',
     description: 'Нова тревна площ, сезонни цветя и естествена каменна пътека за уютен семеен двор.',
+    details: 'Подготвихме терена, подобрихме почвата и обособихме нова тревна площ с устойчиви растения. Добавихме естествена каменна пътека и сезонни акценти, за да стане дворът по-уютен и лесен за поддръжка.',
+    work: ['Почистване и подготовка на терена', 'Полагане и оформяне на тревна площ', 'Засаждане на сезонни цветя и храсти'],
     image: 'https://images.unsplash.com/photo-1558521958-0a228e77e984?auto=format&fit=crop&w=1000&q=85',
   },
   {
     title: 'Вътрешен двор на блок',
     tag: 'Поддръжка и освежаване',
     description: 'Подрязване на храсти, оформяне на зелени зони и повече цвят в общото пространство.',
+    details: 'Освежихме общия вътрешен двор и го превърнахме в по-подредено и приветливо място за живущите. Оформихме зелените зони, почистихме растителността и добавихме сезонен цвят.',
+    work: ['Подрязване и оформяне на храсти', 'Почистване на общите зелени площи', 'Сезонно засаждане и освежаване'],
     image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1000&q=85',
   },
   {
     title: 'Офис пространство',
     tag: 'Зелена среда',
     description: 'Подбрани растения и свежи композиции, които носят спокойствие и характер на офиса.',
+    details: 'Подбрахме непретенциозни растения според светлината и ритъма на офиса. Създадохме зелени композиции за рецепцията и работните зони, които подобряват усещането за пространство без да пречат на ежедневната работа.',
+    work: ['Оглед на помещенията и светлината', 'Подбор и аранжиране на растения', 'План за регулярна грижа'],
     image: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1000&q=85',
   },
   {
     title: 'Градина за отдих',
     tag: 'Сезонна грижа',
     description: 'Редовна грижа за тревата, растенията и малките детайли, които правят градината жива.',
+    details: 'Създадохме сезонен план за поддръжка на градина за отдих. Следим тревата, декоративните растения и малките детайли, за да изглежда пространството добре през всеки сезон.',
+    work: ['Косене и подхранване на тревата', 'Грижа за декоративни растения', 'Сезонно почистване и оформяне'],
     image: 'https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=1000&q=85',
   },
 ]
@@ -51,6 +59,7 @@ const services = [
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [sent, setSent] = useState(false)
+  const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(null)
 
   useEffect(() => {
     const revealElements = document.querySelectorAll<HTMLElement>('[data-reveal]')
@@ -155,7 +164,9 @@ export default function Page() {
         <div className="container about-grid"><div className="about-image"><img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000&q=85" alt="Ръце, които се грижат за зелено растение" /><span className="about-badge">От 2016<br /><small>с любов към земята</small></span></div><div className="about-copy"><p className="eyebrow">За ЗеленоВкъщи</p><h2>Вярваме, че всеки ден е по-добър с малко <em>повече зелено.</em></h2><p>ЗеленоВкъщи е малък екип от хора, които обичат земята и вярват в простата красота на добре поддържаното пространство.</p><p>Работим внимателно, слушаме идеите ви и оставяме след себе си градини, които растат заедно с вас.</p><ul>{['Личен подход към всеки проект', 'Грижа с внимание към всеки детайл', 'Устойчиви решения и местни растения'].map(item => <li key={item}><Check aria-hidden="true" /> {item}</li>)}</ul></div></div>
       </section>
 
-      <section id="projects" className="projects section-padding" data-reveal><div className="container"><div className="section-heading"><div><p className="eyebrow">Нашите проекти</p><h2>Малко вдъхновение<br /><em>от нашата работа.</em></h2></div><p>Всяко пространство разказва своя история. Ето няколко от любимите ни.</p></div><div className="project-grid">{projects.map(project => <article data-reveal className="project-card" key={project.title}><div className="project-image"><img src={project.image} alt={project.title} /><span>{project.tag}</span></div><div className="project-info"><h3>{project.title}</h3><p>{project.description}</p></div></article>)}</div></div></section>
+      <section id="projects" className="projects section-padding" data-reveal><div className="container"><div className="section-heading"><div><p className="eyebrow">Нашите проекти</p><h2>Малко вдъхновение<br /><em>от нашата работа.</em></h2></div><p>Всяко пространство разказва своя история. Ето няколко от любимите ни.</p></div><div className="project-grid">{projects.map(project => <button type="button" data-reveal className="project-card" key={project.title} onClick={() => setSelectedProject(project)}><div className="project-image"><img src={project.image} alt={project.title} /><span>{project.tag}</span></div><div className="project-info"><h3>{project.title}</h3><p>{project.description}</p><span className="project-open">Вижте проекта <ArrowRight aria-hidden="true" /></span></div></button>)}</div></div></section>
+
+      {selectedProject && <div className="project-modal-backdrop" role="presentation" onClick={() => setSelectedProject(null)}><article className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" onClick={(event) => event.stopPropagation()}><button type="button" className="project-modal-close" aria-label="Затвори проекта" onClick={() => setSelectedProject(null)}><X aria-hidden="true" /></button><div className="project-modal-image"><img src={selectedProject.image} alt={selectedProject.title} /></div><div className="project-modal-content"><p className="eyebrow">Пример от нашата работа</p><span className="project-modal-tag">{selectedProject.tag}</span><h2 id="project-modal-title">{selectedProject.title}</h2><p className="project-modal-description">{selectedProject.details}</p><h3>Какво извършихме</h3><ul>{selectedProject.work.map(item => <li key={item}><Check aria-hidden="true" /> {item}</li>)}</ul><p className="project-modal-note">Снимките в тази секция са примерни. Тук ще добавим реални снимки от вашите обекти.</p></div></article></div>}
 
       <section id="contact" className="contact section-padding" data-reveal><div className="container contact-grid"><div className="contact-copy"><p className="eyebrow">Нека поговорим</p><h2>Готови ли сте за<br /><em>по-зелено утре?</em></h2><p>Разкажете ни за вашето пространство. Ще се свържем с вас, за да обсъдим най-доброто решение.</p><div className="contact-details"><a href="tel:+359888123456"><span><Phone aria-hidden="true" /></span><div><small>Обадете се</small><strong>+359 888 123 456</strong></div></a><a href="mailto:hello@zelenovkashti.bg"><span><Mail aria-hidden="true" /></span><div><small>Пишете ни</small><strong>hello@zelenovkashti.bg</strong></div></a><div><span><MapPin aria-hidden="true" /></span><div><small>Работим в</small><strong>София и околността</strong></div></div></div></div><form className="contact-form" onSubmit={handleSubmit}>{sent ? <div className="success-message"><span><Check aria-hidden="true" /></span><h3>Благодарим ви!</h3><p>Получихме вашето съобщение и ще се свържем с вас съвсем скоро.</p><button type="button" className="text-link" onClick={() => setSent(false)}>Изпрати ново съобщение</button></div> : <><div className="form-row"><label>Вашето име<input required name="name" placeholder="Име и фамилия" /></label><label>Телефон<input required name="phone" type="tel" placeholder="+359 ..." /></label></div><label>Имейл адрес<input required name="email" type="email" placeholder="you@example.com" /></label><label>Как можем да помогнем?<textarea required name="message" rows={4} placeholder="Разкажете ни за вашия проект..."></textarea></label><button className="button button-light" type="submit">Изпрати запитване <ArrowRight aria-hidden="true" /></button></>}</form></div></section>
 
