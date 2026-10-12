@@ -62,7 +62,7 @@ export default function Page() {
       <header className="site-header">
         <div className="container nav-inner">
           <a className="brand" href="#home" aria-label="ЗеленоВкъщи начало">
-            <img className="brand-logo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%D0%97%D0%B5%D0%BB%D0%B5%D0%BD%D0%BE%D0%92%D0%BA%D1%8A%D1%89%D0%B8_%20%D0%93%D1%80%D0%B8%D0%B6%D0%B0%20%D0%B7%D0%B0%20%D1%82%D1%80%D0%B5%D0%B2%D0%B0%D1%82%D0%B0-6JiYkWfQ2nPniR118IQlbh85xvqIuQ.png" alt="Лого на ЗеленоВкъщи" />
+            <span className="brand-mark" aria-hidden="true"><Leaf /></span><span className="brand-name">Зелено<span>Вкъщи</span></span>
           </a>
           <button className="mobile-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Затвори менюто' : 'Отвори менюто'} aria-expanded={menuOpen}>
             {menuOpen ? <X /> : <Menu />}
@@ -91,6 +91,12 @@ export default function Page() {
               <a className="text-link" href="#projects">Вижте нашата работа <ChevronDown aria-hidden="true" /></a>
             </div>
             <div className="hero-note"><span className="avatar-stack"><i /><i /><i /></span><span>Доверие от над <strong>120 клиента</strong></span></div>
+            <div className="hero-stats" aria-label="Нашият опит">
+              <div><strong>10+</strong><span>години опит</span></div>
+              <div><strong>200+</strong><span>обекта</span></div>
+              <div><strong>100%</strong><span>грижа</span></div>
+            </div>
+
           </div>
           <div className="hero-visual">
             <div className="hero-image-wrap"><img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=85" alt="Слънчева зелена градина с декоративни треви" /></div>
