@@ -128,7 +128,7 @@ export default function Page() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <p className="eyebrow"><Sparkles aria-hidden="true" /> Природа, създадена с грижа</p>
-            <h1>Вашето зелено<br /><em>място за ж��вот.</em></h1>
+            <h1>Вашето зелено<br /><em>място за живот.</em></h1>
             <p className="hero-text">Поддържаме, проектираме и създаваме пространства, в които природата се чувства у дома — а вие се чувствате добре.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#contact">Започнете проект <ArrowRight aria-hidden="true" /></a>
