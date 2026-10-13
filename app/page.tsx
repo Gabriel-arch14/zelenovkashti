@@ -134,7 +134,7 @@ export default function Page() {
               <a className="button button-primary" href="#contact">Започнете проект <ArrowRight aria-hidden="true" /></a>
               <a className="text-link" href="#projects">Вижте нашата работа <ChevronDown aria-hidden="true" /></a>
             </div>
-            <div className="hero-note"><span className="avatar-stack"><i /><i /><i /></span><span>Доверие ��т над <strong>120 клиента</strong></span></div>
+            <div className="hero-note"><span className="avatar-stack"><i /><i /><i /></span><span>Доверие от над <strong>120 клиента</strong></span></div>
             <div className="hero-stats" aria-label="Нашият опит">
               <div><strong>10+</strong><span>години опит</span></div>
               <div><strong>200+</strong><span>обекта</span></div>
