@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useEffect, useState } from 'react'
+import { PestIllustration } from '@/components/pest-illustration'
 import {
   ArrowRight,
   Check,
@@ -56,6 +57,14 @@ const services = [
   ['Грижа за растенията', 'Засаждане, торене и професионални съвети за здрави и красиви растения.'],
 ]
 
+const pestHighlights = [
+  ['Листни въшки', 'Дребни насекоми, които смучат сок от младите листа и връхчета.', 'listni-vashki'],
+  ['Голи охлюви', 'Нощни вредители, които оставят дупки по листата и лигави следи.', 'goli-ohlyuvi'],
+  ['Буксов молец', 'Гъсеници, които могат бързо да обезлистят чимшировия жив плет.', 'buksov-molets'],
+]
+
+const pestImage = 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=85'
+
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [sent, setSent] = useState(false)
@@ -105,6 +114,7 @@ export default function Page() {
             <a href="#services" onClick={() => setMenuOpen(false)}>Услуги</a>
             <a href="#about" onClick={() => setMenuOpen(false)}>За нас</a>
             <a href="#projects" onClick={() => setMenuOpen(false)}>Проекти</a>
+            <a href="/vrediteli" onClick={() => setMenuOpen(false)}>Вредители</a>
             <a href="#contact" onClick={() => setMenuOpen(false)}>Контакти</a>
             <a className="nav-phone" href="tel:+359888123456" onClick={() => setMenuOpen(false)}><Phone aria-hidden="true" /> +359 888 123 456</a>
             <a className="nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>Поискайте оглед <ArrowRight aria-hidden="true" /></a>
@@ -124,7 +134,7 @@ export default function Page() {
               <a className="button button-primary" href="#contact">Започнете проект <ArrowRight aria-hidden="true" /></a>
               <a className="text-link" href="#projects">Вижте нашата работа <ChevronDown aria-hidden="true" /></a>
             </div>
-            <div className="hero-note"><span className="avatar-stack"><i /><i /><i /></span><span>Доверие от над <strong>120 клиента</strong></span></div>
+            <div className="hero-note"><span className="avatar-stack"><i /><i /><i /></span><span>Доверие ��т над <strong>120 клиента</strong></span></div>
             <div className="hero-stats" aria-label="Нашият опит">
               <div><strong>10+</strong><span>години опит</span></div>
               <div><strong>200+</strong><span>обекта</span></div>
@@ -165,6 +175,8 @@ export default function Page() {
       </section>
 
       <section id="projects" className="projects section-padding" data-reveal><div className="container"><div className="section-heading"><div><p className="eyebrow">Нашите проекти</p><h2>Малко вдъхновение<br /><em>от нашата работа.</em></h2></div><p>Всяко пространство разказва своя история. Ето няколко от любимите ни.</p></div><div className="project-grid">{projects.map(project => <button type="button" data-reveal className="project-card" key={project.title} onClick={() => setSelectedProject(project)}><div className="project-image"><img src={project.image} alt={project.title} /><span>{project.tag}</span></div><div className="project-info"><h3>{project.title}</h3><p>{project.description}</p><span className="project-open">Вижте проекта <ArrowRight aria-hidden="true" /></span></div></button>)}</div></div></section>
+
+      <section id="pests" className="pests section-padding" data-reveal><div className="container"><div className="section-heading"><div><p className="eyebrow">Вредители</p><h2>Кой тормози<br /><em>вашия двор?</em></h2></div><p>Ранното разпознаване спестява растения и пари. Ето някои от най-честите вредители.</p></div><div className="pest-highlight-grid">{pestHighlights.map(([title, text, slug]) => <a className="pest-highlight-card" data-reveal href={`/vrediteli#${slug}`} key={slug}><div className="pest-highlight-image"><PestIllustration pestId={slug} name={title} compact /><span>{title === 'Листни въшки' ? 'Насекомо' : 'Мекотело'}</span></div><div className="pest-highlight-content"><h3>{title}</h3><p>{text}</p><span className="project-open">Научете повече <ArrowRight aria-hidden="true" /></span></div></a>)}</div><a className="button button-primary pests-button" href="/vrediteli">Всички вредители <ArrowRight aria-hidden="true" /></a></div></section>
 
       {selectedProject && <div className="project-modal-backdrop" role="presentation" onClick={() => setSelectedProject(null)}><article className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" onClick={(event) => event.stopPropagation()}><button type="button" className="project-modal-close" aria-label="Затвори проекта" onClick={() => setSelectedProject(null)}><X aria-hidden="true" /></button><div className="project-modal-image"><img src={selectedProject.image} alt={selectedProject.title} /></div><div className="project-modal-content"><p className="eyebrow">Пример от нашата работа</p><span className="project-modal-tag">{selectedProject.tag}</span><h2 id="project-modal-title">{selectedProject.title}</h2><p className="project-modal-description">{selectedProject.details}</p><h3>Какво извършихме</h3><ul>{selectedProject.work.map(item => <li key={item}><Check aria-hidden="true" /> {item}</li>)}</ul><p className="project-modal-note">Снимките в тази секция са примерни. Тук ще добавим реални снимки от вашите обекти.</p></div></article></div>}
 
