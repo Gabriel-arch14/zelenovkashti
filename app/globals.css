@@ -171,3 +171,63 @@ main::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-even
 .pests-cta { padding-top: 40px; }.pests-cta-card { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 38px 42px; background: rgba(10,45,29,.55); border: 1px solid var(--line); border-radius: 28px; backdrop-filter: blur(22px); }.pests-cta h2 { margin: 0; color: var(--ink); font-size: clamp(28px, 4vw, 46px); }.pests-cta p:not(.eyebrow) { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
 @media (max-width: 900px) { .pests-grid { grid-template-columns: repeat(2, 1fr); } .pest-highlight-grid { grid-template-columns: 1fr; } }
 @media (max-width: 800px) { .pests-hero { padding-top: 70px; }.pests-hero h1 { font-size: 52px; }.pests-grid { grid-template-columns: 1fr; }.pests-cta-card { align-items: flex-start; flex-direction: column; padding: 28px 24px; } }
+
+/* Mobile readability: keep headings within the viewport and let Bulgarian words breathe. */
+@media (max-width: 600px) {
+  .container { width: min(100% - 32px, 600px); }
+  .eyebrow { max-width: 100%; margin-bottom: 15px; font-size: 10px; letter-spacing: 1.35px; line-height: 1.45; }
+  .hero h1, .hero h2, h2 { font-size: clamp(31px, 10.5vw, 42px); line-height: 1.08; letter-spacing: -1.25px; overflow-wrap: break-word; }
+  .hero h1 { max-width: 100%; }
+  .hero-text { margin: 20px 0 28px; font-size: 14px; line-height: 1.7; }
+  .hero-grid { padding: 64px 0 76px; gap: 44px; }
+  .hero-image-wrap { height: 330px; border-radius: 150px 150px 10px 10px; }
+  .floating-card { max-width: 205px; padding: 12px 14px 12px 11px; font-size: 11px; }
+  .sun-stamp { width: 78px; height: 78px; right: -7px; top: 18px; font-size: 16px; }
+  .sun-stamp small { font-size: 8px; }
+  .service-area h2, .section-heading h2, .about-copy h2, .contact h2 { font-size: clamp(30px, 9.5vw, 39px); line-height: 1.1; letter-spacing: -1px; }
+  .section-heading { gap: 16px; margin-bottom: 30px; }
+  .section-heading > p, .service-area-text, .about-copy > p:not(.eyebrow), .contact-copy > p:not(.eyebrow) { font-size: 13px; line-height: 1.7; }
+  .service-area-inner { gap: 24px; padding: 24px 20px; }
+  .area-pills { gap: 8px; }
+  .area-pills span { padding: 9px 12px; font-size: 11px; white-space: normal; }
+  .about-grid { gap: 38px; }
+  .about-image { height: 320px; padding-left: 12px; }
+  .about-badge { left: -8px; width: 94px; height: 94px; font-size: 17px; }
+  .about-badge small { font-size: 8px; }
+  .project-info h3 { margin: 0 0 8px; font-size: 14px; line-height: 1.25; }
+  .project-info p { line-height: 1.45; }
+  .project-open { font-size: 10px; line-height: 1.3; }
+  .contact-grid { gap: 36px; }
+  .contact-form { padding: 20px 17px; }
+  .contact-form label { font-size: 10px; }
+  .pests-hero { padding-top: 52px; padding-bottom: 58px; }
+  .pests-hero h1 { font-size: clamp(39px, 12vw, 51px); line-height: 1.02; letter-spacing: -2px; }
+  .pests-intro { margin-top: 20px; font-size: 14px; line-height: 1.7; }
+  .pests-list { padding-top: 20px; }
+  .pest-card { border-radius: 22px; }
+  .pest-card-image { height: 165px; }
+  .pest-card-body { padding: 20px 18px 22px; }
+  .pest-card h2 { margin: 13px 0 10px; font-size: 21px; line-height: 1.18; letter-spacing: -.65px; }
+  .pest-card p { font-size: 13px; line-height: 1.65; }
+  .pest-card-image span, .pest-highlight-image span { font-size: 9px; padding: 6px 8px; }
+  .pest-illustration { min-height: 165px; }
+  .pest-highlight-content { padding: 18px; }
+  .pest-highlight-content h3 { font-size: 18px; line-height: 1.2; }
+  .pest-highlight-content p { min-height: 0; font-size: 13px; line-height: 1.6; }
+  .pests-cta { padding-top: 20px; }
+  .pests-cta h2 { font-size: 29px; line-height: 1.12; letter-spacing: -.8px; }
+  .project-modal-backdrop { padding: 12px; }
+  .project-modal { border-radius: 22px; max-height: calc(100vh - 24px); }
+  .project-modal-image { min-height: 190px; height: 190px; }
+  .project-modal-content { padding: 26px 20px 23px; }
+  .project-modal h2 { margin: 14px 0 15px; font-size: clamp(28px, 9vw, 36px); line-height: 1.08; letter-spacing: -.8px; }
+  .project-modal-description { font-size: 13px; line-height: 1.7; }
+  .project-modal-content h3 { margin: 23px 0 12px; font-size: 15px; }
+}
+@media (max-width: 360px) {
+  .container { width: min(100% - 26px, 600px); }
+  .hero h1, .hero h2, h2 { font-size: 30px; }
+  .pests-hero h1 { font-size: 37px; }
+  .project-grid { gap: 9px; }
+  .project-info { padding-inline: 10px; }
+}
