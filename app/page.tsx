@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useEffect, useState } from 'react'
+import { PestIllustration } from '@/components/pest-illustration'
 import {
   ArrowRight,
   Check,
@@ -127,7 +128,7 @@ export default function Page() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <p className="eyebrow"><Sparkles aria-hidden="true" /> Природа, създадена с грижа</p>
-            <h1>Вашето зелено<br /><em>място за живот.</em></h1>
+            <h1>Вашето зелено<br /><em>място за ж��вот.</em></h1>
             <p className="hero-text">Поддържаме, проектираме и създаваме пространства, в които природата се чувства у дома — а вие се чувствате добре.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#contact">Започнете проект <ArrowRight aria-hidden="true" /></a>
@@ -175,7 +176,7 @@ export default function Page() {
 
       <section id="projects" className="projects section-padding" data-reveal><div className="container"><div className="section-heading"><div><p className="eyebrow">Нашите проекти</p><h2>Малко вдъхновение<br /><em>от нашата работа.</em></h2></div><p>Всяко пространство разказва своя история. Ето няколко от любимите ни.</p></div><div className="project-grid">{projects.map(project => <button type="button" data-reveal className="project-card" key={project.title} onClick={() => setSelectedProject(project)}><div className="project-image"><img src={project.image} alt={project.title} /><span>{project.tag}</span></div><div className="project-info"><h3>{project.title}</h3><p>{project.description}</p><span className="project-open">Вижте проекта <ArrowRight aria-hidden="true" /></span></div></button>)}</div></div></section>
 
-      <section id="pests" className="pests section-padding" data-reveal><div className="container"><div className="section-heading"><div><p className="eyebrow">Вредители</p><h2>Кой тормози<br /><em>вашия двор?</em></h2></div><p>Ранното разпознаване спестява растения и пари. Ето някои от най-честите вредители.</p></div><div className="pest-highlight-grid">{pestHighlights.map(([title, text, slug]) => <a className="pest-highlight-card" data-reveal href={`/vrediteli#${slug}`} key={slug}><div className="pest-highlight-image"><div className="pest-placeholder" role="img" aria-label={`Място за снимка на ${title}`}>Място за снимка<br /><small>{title}</small></div><span>Снимка ще бъде добавена</span></div><div className="pest-highlight-content"><h3>{title}</h3><p>{text}</p><span className="project-open">Научете повече <ArrowRight aria-hidden="true" /></span></div></a>)}</div><a className="button button-primary pests-button" href="/vrediteli">Всички вредители <ArrowRight aria-hidden="true" /></a></div></section>
+      <section id="pests" className="pests section-padding" data-reveal><div className="container"><div className="section-heading"><div><p className="eyebrow">Вредители</p><h2>Кой тормози<br /><em>вашия двор?</em></h2></div><p>Ранното разпознаване спестява растения и пари. Ето някои от най-честите вредители.</p></div><div className="pest-highlight-grid">{pestHighlights.map(([title, text, slug]) => <a className="pest-highlight-card" data-reveal href={`/vrediteli#${slug}`} key={slug}><div className="pest-highlight-image"><PestIllustration pestId={slug} name={title} compact /><span>{title === 'Листни въшки' ? 'Насекомо' : 'Мекотело'}</span></div><div className="pest-highlight-content"><h3>{title}</h3><p>{text}</p><span className="project-open">Научете повече <ArrowRight aria-hidden="true" /></span></div></a>)}</div><a className="button button-primary pests-button" href="/vrediteli">Всички вредители <ArrowRight aria-hidden="true" /></a></div></section>
 
       {selectedProject && <div className="project-modal-backdrop" role="presentation" onClick={() => setSelectedProject(null)}><article className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" onClick={(event) => event.stopPropagation()}><button type="button" className="project-modal-close" aria-label="Затвори проекта" onClick={() => setSelectedProject(null)}><X aria-hidden="true" /></button><div className="project-modal-image"><img src={selectedProject.image} alt={selectedProject.title} /></div><div className="project-modal-content"><p className="eyebrow">Пример от нашата работа</p><span className="project-modal-tag">{selectedProject.tag}</span><h2 id="project-modal-title">{selectedProject.title}</h2><p className="project-modal-description">{selectedProject.details}</p><h3>Какво извършихме</h3><ul>{selectedProject.work.map(item => <li key={item}><Check aria-hidden="true" /> {item}</li>)}</ul><p className="project-modal-note">Снимките в тази секция са примерни. Тук ще добавим реални снимки от вашите обекти.</p></div></article></div>}
 
