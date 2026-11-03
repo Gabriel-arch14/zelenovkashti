@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Check, Leaf, Phone, ShieldCheck, Sprout } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Calculator, Check, Leaf, Phone, ShieldCheck, Sprout } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -45,7 +45,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <header className="site-header">
         <div className="container nav-inner">
           <Link className="brand" href="/" aria-label="ЗеленоВкъщи начало"><span className="brand-mark"><Leaf aria-hidden="true" /></span><span>Зелено<span>Вкъщи</span></span></Link>
-          <nav className="main-nav service-nav" aria-label="Навигация на страницата"><Link href="/#services">Услуги</Link><Link href="/#about">За нас</Link><Link href="/#projects">Проекти</Link><Link className="nav-cta" href="/#contact">Свържете се <ArrowRight aria-hidden="true" /></Link></nav>
+          <nav className="main-nav service-nav" aria-label="Навигация на страницата"><Link href="/#services">Услуги</Link><Link href="/#about">За нас</Link><Link href="/#projects">Проекти</Link><a className="nav-calc" href="/oferta">Изчислете цена <Calculator aria-hidden="true" /></a><Link className="nav-cta" href="/#contact">Свържете се <ArrowRight aria-hidden="true" /></Link></nav>
         </div>
       </header>
 

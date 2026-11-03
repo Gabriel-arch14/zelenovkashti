@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from 'react'
 import { PestIllustration } from '@/components/pest-illustration'
 import {
   ArrowRight,
+  Calculator,
   Check,
   ChevronDown,
   Camera,
@@ -117,6 +118,7 @@ export default function Page() {
             <a href="/vrediteli" onClick={() => setMenuOpen(false)}>Вредители</a>
             <a href="#contact" onClick={() => setMenuOpen(false)}>Контакти</a>
             <a className="nav-phone" href="tel:+359888123456" onClick={() => setMenuOpen(false)}><Phone aria-hidden="true" /> +359 888 123 456</a>
+            <a className="nav-calc" href="/oferta">Изчислете цена <Calculator aria-hidden="true" /></a>
             <a className="nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>Поискайте оглед <ArrowRight aria-hidden="true" /></a>
           </nav>
         </div>

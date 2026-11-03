@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowLeft, ArrowRight, Check, Leaf } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Calculator, Check, Leaf } from 'lucide-react'
 import { PestIllustration } from '@/components/pest-illustration'
 import { useEffect, type CSSProperties } from 'react'
 
@@ -26,7 +26,7 @@ export default function PestsPage() {
   }, [])
 
   return <main className="pests-page">
-    <header className="site-header"><div className="container nav-inner"><a className="brand" href="/"><span className="brand-mark"><Leaf /></span><span className="brand-name">Зелено<span>Вкъщи</span></span></a><nav className="main-nav" aria-label="Основна навигация"><a href="/#services">Услуги</a><a href="/#about">За нас</a><a href="/#projects">Проекти</a><a className="active" href="/vrediteli">Вредители</a><a href="/#contact">Контакти</a><a className="nav-cta" href="/#contact">Поискайте оглед <ArrowRight /></a></nav></div></header>
+    <header className="site-header"><div className="container nav-inner"><a className="brand" href="/"><span className="brand-mark"><Leaf /></span><span className="brand-name">Зелено<span>Вкъщи</span></span></a><nav className="main-nav" aria-label="Основна навигация"><a href="/#services">Услуги</a><a href="/#about">За нас</a><a href="/#projects">Проекти</a><a className="active" href="/vrediteli">Вредители</a><a href="/#contact">Контакти</a><a className="nav-calc" href="/oferta">Изчислете цена <Calculator aria-hidden="true" /></a><a className="nav-cta" href="/#contact">Поискайте оглед <ArrowRight /></a></nav></div></header>
     <section className="pests-hero section-padding"><div className="container"><a className="back-link" href="/"><ArrowLeft /> Обратно към началото</a><p className="eyebrow">Възможни вредители</p><h1>Вредители в двора<br /><em>и градината.</em></h1><p className="pests-intro">Ранното разпознаване е първата стъпка към здрава градина. Научете как да забележите най-честите вредители и кога е време за професионална грижа.</p></div></section>
     <section className="pests-list section-padding"><div className="container"><div className="pests-grid">{pests.map((pest, index) => <article id={pest.id} className="pest-card" data-reveal key={pest.id} style={{ '--reveal-delay': `${(index % 3) * 0.15}s` } as CSSProperties}><div className="pest-card-image"><PestIllustration pestId={pest.id} name={pest.name} /><span>{pest.type}</span></div><div className="pest-card-body"><span className="pest-type">{pest.type}</span><h2>{pest.name}</h2><p>{pest.description}</p><p><strong>Как го разпознавате:</strong> {pest.identify}</p><p><strong>Кога е активен:</strong> {pest.active}</p></div></article>)}</div></div></section>
     <section className="pests-cta section-padding" data-reveal><div className="container pests-cta-card"><div><p className="eyebrow">Нужна е помощ?</p><h2>Не сте сигурни какъв е вредителят?</h2><p>Направете безплатен оглед и ще ви помогнем да изберете правилната грижа.</p></div><a className="button button-primary" href="/#contact">Свържете се с нас <ArrowRight /></a></div></section>
